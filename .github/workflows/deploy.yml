@@ -2,6 +2,9 @@ name: Publish legal library
 on:
   push:
     branches: [main]
+    paths:
+      - laws-overlay-3.tar.b64
+      - .github/workflows/deploy.yml
   workflow_dispatch:
 permissions:
   contents: read
