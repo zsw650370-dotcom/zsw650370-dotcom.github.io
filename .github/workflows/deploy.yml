@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: mkdir public && tar -xzf site.tar.gz -C public
-      - run: mkdir -p public/laws && cp laws/index.html public/laws/index.html
+      - name: Apply complete laws overlay
+        run: cat laws-overlay.tar.b64 laws-overlay-2.tar.b64 laws-overlay-3.tar.b64 | base64 --decode | tar -xz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
