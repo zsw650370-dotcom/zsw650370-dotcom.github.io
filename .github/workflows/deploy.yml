@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - laws-overlay-3103-ecology-4.tar.b64
+      - laws-overlay-3166-criminal-4.tar.b64
       - .github/workflows/deploy.yml
   workflow_dispatch:
 permissions:
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: mkdir public && tar -xzf site.tar.gz -C public
       - name: Apply complete laws overlay
-        run: cat laws-overlay-3103-ecology-1.tar.b64 laws-overlay-3103-ecology-2.tar.b64 laws-overlay-3103-ecology-3.tar.b64 laws-overlay-3103-ecology-4.tar.b64 | base64 --decode | tar -xz -C public
+        run: cat laws-overlay-3166-criminal-1.tar.b64 laws-overlay-3166-criminal-2.tar.b64 laws-overlay-3166-criminal-3.tar.b64 laws-overlay-3166-criminal-4.tar.b64 | base64 --decode | tar -xz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
