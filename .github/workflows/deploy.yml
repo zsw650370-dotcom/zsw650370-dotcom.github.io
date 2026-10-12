@@ -26,6 +26,11 @@ jobs:
           cat ui-base-reading-20261012-1.tar.b64 ui-base-reading-20261012-2.tar.b64 ui-base-reading-20261012-3.tar.b64 ui-base-reading-20261012-4.tar.b64 ui-base-reading-20261012-5.tar.b64 ui-base-reading-20261012-6.tar.b64 ui-base-reading-20261012-7.tar.b64 ui-base-reading-20261012-8.tar.b64 ui-base-reading-20261012-9.tar.b64 ui-base-reading-20261012-10.tar.b64 ui-base-reading-20261012-11.tar.b64 ui-base-reading-20261012-12.tar.b64 ui-base-reading-20261012-13.tar.b64 ui-base-reading-20261012-14.tar.b64 ui-base-reading-20261012-15.tar.b64 ui-base-reading-20261012-16.tar.b64 ui-base-reading-20261012-17.tar.b64 ui-base-reading-20261012-18.tar.b64 | base64 --decode > /tmp/reading-ui-base.tar.gz
           echo "7b4ee2608e494558281901fc43386e4593a1b343f1d3a8d7617e50bc256ce22a  /tmp/reading-ui-base.tar.gz" | sha256sum --check
           tar -xzf /tmp/reading-ui-base.tar.gz -C public
+      - name: Apply verified catalogue cleanup
+        run: |
+          base64 --decode ui-reading-catalogue-fix-20261012.tar.b64 > /tmp/reading-catalogue-fix.tar.gz
+          echo "8bd452fb74f5f2a9b26b9498cc24ea3a90612fb739795ee1a6c1c1ccfd9cb880  /tmp/reading-catalogue-fix.tar.gz" | sha256sum --check
+          tar -xzf /tmp/reading-catalogue-fix.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
