@@ -3,7 +3,6 @@ on:
   push:
     branches: [main]
     paths:
-      - laws-overlay-3638-criminal-ecology-4.tar.b64
       - .github/workflows/deploy.yml
   workflow_dispatch:
 permissions:
@@ -22,11 +21,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: mkdir public && tar -xzf site.tar.gz -C public
-      - name: Apply complete laws overlay
+      - name: Apply verified reading UI base
         run: |
-          cat laws-overlay-3638-criminal-ecology-1.tar.b64 laws-overlay-3638-criminal-ecology-2.tar.b64 laws-overlay-3638-criminal-ecology-3.tar.b64 laws-overlay-3638-criminal-ecology-4.tar.b64 | base64 --decode > /tmp/laws-overlay.tar.gz
-          echo "cba385c5ebc11256ad87ca3b209f1bb0dfc5b3e7f4ec338f32e8aa1e727f4b34  /tmp/laws-overlay.tar.gz" | sha256sum --check
-          tar -xzf /tmp/laws-overlay.tar.gz -C public
+          cat ui-base-reading-20261012-1.tar.b64 ui-base-reading-20261012-2.tar.b64 ui-base-reading-20261012-3.tar.b64 ui-base-reading-20261012-4.tar.b64 ui-base-reading-20261012-5.tar.b64 ui-base-reading-20261012-6.tar.b64 ui-base-reading-20261012-7.tar.b64 ui-base-reading-20261012-8.tar.b64 ui-base-reading-20261012-9.tar.b64 ui-base-reading-20261012-10.tar.b64 ui-base-reading-20261012-11.tar.b64 ui-base-reading-20261012-12.tar.b64 ui-base-reading-20261012-13.tar.b64 ui-base-reading-20261012-14.tar.b64 ui-base-reading-20261012-15.tar.b64 ui-base-reading-20261012-16.tar.b64 ui-base-reading-20261012-17.tar.b64 ui-base-reading-20261012-18.tar.b64 | base64 --decode > /tmp/reading-ui-base.tar.gz
+          echo "7b4ee2608e494558281901fc43386e4593a1b343f1d3a8d7617e50bc256ce22a  /tmp/reading-ui-base.tar.gz" | sha256sum --check
+          tar -xzf /tmp/reading-ui-base.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
