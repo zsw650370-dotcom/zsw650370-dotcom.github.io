@@ -29,7 +29,7 @@ jobs:
       - name: Apply verified catalogue cleanup
         run: |
           base64 --decode ui-reading-catalogue-fix-20261012.tar.b64 > /tmp/reading-catalogue-fix.tar.gz
-          echo "8bd452fb74f5f2a9b26b9498cc24ea3a90612fb740035ee1a6c1c1ccfd9cb880  /tmp/reading-catalogue-fix.tar.gz" | sha256sum --check
+          echo "8bd452fb74f5f2a9b26b9498cc24ea3a90612fb739795ee1a6c1c1ccfd9cb880  /tmp/reading-catalogue-fix.tar.gz" | sha256sum --check
           tar -xzf /tmp/reading-catalogue-fix.tar.gz -C public
       - name: Apply newly verified laws overlay
         run: |
