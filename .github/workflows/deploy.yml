@@ -33,8 +33,8 @@ jobs:
           tar -xzf /tmp/reading-catalogue-fix.tar.gz -C public
       - name: Apply newly verified laws overlay
         run: |
-          cat laws-overlay-4964-reading-1.tar.b64 laws-overlay-4964-reading-2.tar.b64 laws-overlay-4964-reading-3.tar.b64 laws-overlay-4964-reading-4.tar.b64 | base64 --decode > /tmp/laws-overlay.tar.gz
-          echo "bf427e9f47d9c30115bb25a674347c4a51eb356d40ffb07189c6c2fff18ec4a0  /tmp/laws-overlay.tar.gz" | sha256sum --check
+          cat laws-overlay-4988-reading-1.tar.b64 laws-overlay-4988-reading-2.tar.b64 laws-overlay-4988-reading-3.tar.b64 laws-overlay-4988-reading-4.tar.b64 | base64 --decode > /tmp/laws-overlay.tar.gz
+          echo "78de2e15828f50709d86a5d64a7a5d24591d1ed19581a5f14be69e31d0b53af1  /tmp/laws-overlay.tar.gz" | sha256sum --check
           tar -xzf /tmp/laws-overlay.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
