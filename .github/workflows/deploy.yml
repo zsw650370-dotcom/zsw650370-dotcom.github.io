@@ -61,6 +61,11 @@ jobs:
           base64 --decode ui-remove-catalogue-progress-20261024.tar.b64 > /tmp/catalogue-cleanup.tar.gz
           echo "95b127d22f4fe583b4ca2790250cb4af5a4581e846f8316ecafe2f018d60982f  /tmp/catalogue-cleanup.tar.gz" | sha256sum --check
           tar -xzf /tmp/catalogue-cleanup.tar.gz -C public
+      - name: Apply reviewed plain language examples batch 001
+        run: |
+          base64 --decode example-review-20261024-001.tar.b64 > /tmp/example-review-001.tar.gz
+          echo "ba98502e1cfa53b0138321e225deff65c2930a2fd7aec7c7aabe6de6accae050  /tmp/example-review-001.tar.gz" | sha256sum --check
+          tar -xzf /tmp/example-review-001.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
