@@ -56,6 +56,11 @@ jobs:
           base64 --decode ui-monochrome-20261024.tar.b64 > /tmp/monochrome.tar.gz
           echo "72e2aec140566343fb8631f02d4784bf77d672a0d804c0d11e6cb8be55614ec2  /tmp/monochrome.tar.gz" | sha256sum --check
           tar -xzf /tmp/monochrome.tar.gz -C public
+      - name: Remove requested catalogue progress section
+        run: |
+          base64 --decode ui-remove-catalogue-progress-20261024.tar.b64 > /tmp/catalogue-cleanup.tar.gz
+          echo "95b127d22f4fe583b4ca2790250cb4af5a4581e846f8316ecafe2f018d60982f  /tmp/catalogue-cleanup.tar.gz" | sha256sum --check
+          tar -xzf /tmp/catalogue-cleanup.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
