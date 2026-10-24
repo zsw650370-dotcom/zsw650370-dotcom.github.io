@@ -41,6 +41,11 @@ jobs:
           cat ui-redesign-20261024-1.tar.b64 ui-redesign-20261024-2.tar.b64 ui-redesign-20261024-3.tar.b64 ui-redesign-20261024-4.tar.b64 ui-redesign-20261024-5.tar.b64 ui-redesign-20261024-6.tar.b64 ui-redesign-20261024-7.tar.b64 ui-redesign-20261024-8.tar.b64 ui-redesign-20261024-9.tar.b64 ui-redesign-20261024-10.tar.b64 ui-redesign-20261024-11.tar.b64 | base64 --decode > /tmp/ui-redesign.tar.gz
           echo "e49a5dc1639740cd850d35a22e0e79917bbd9255016c65ebcd437a14644b3dd5  /tmp/ui-redesign.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-redesign.tar.gz -C public
+      - name: Refine mobile search results spacing
+        run: |
+          base64 --decode ui-search-mobile-polish-20261024.tar.b64 > /tmp/ui-search-polish.tar.gz
+          echo "799ba9d3dc12db50fa21d94bfdfafd6b3c9b19f792168ae071e2c12b47ff63eb  /tmp/ui-search-polish.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-search-polish.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
