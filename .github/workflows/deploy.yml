@@ -36,6 +36,11 @@ jobs:
           cat laws-overlay-5745-reading-1.tar.b64 laws-overlay-5745-reading-2.tar.b64 laws-overlay-5745-reading-3.tar.b64 laws-overlay-5745-reading-4.tar.b64 | base64 --decode > /tmp/laws-overlay.tar.gz
           echo "20b1b7ba0aeb2c90f0841c01e1a204050bacaddd175fc2c5490c86dad64066c1  /tmp/laws-overlay.tar.gz" | sha256sum --check
           tar -xzf /tmp/laws-overlay.tar.gz -C public
+      - name: Apply verified complete UI redesign 20261024
+        run: |
+          cat ui-redesign-20261024-1.tar.b64 ui-redesign-20261024-2.tar.b64 ui-redesign-20261024-3.tar.b64 ui-redesign-20261024-4.tar.b64 ui-redesign-20261024-5.tar.b64 ui-redesign-20261024-6.tar.b64 ui-redesign-20261024-7.tar.b64 ui-redesign-20261024-8.tar.b64 ui-redesign-20261024-9.tar.b64 ui-redesign-20261024-10.tar.b64 ui-redesign-20261024-11.tar.b64 | base64 --decode > /tmp/ui-redesign.tar.gz
+          echo "e49a5dc1639740cd850d35a22e0e79917bbd9255016c65ebcd437a14644b3dd5  /tmp/ui-redesign.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-redesign.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
