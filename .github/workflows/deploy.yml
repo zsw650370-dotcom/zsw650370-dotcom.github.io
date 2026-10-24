@@ -46,6 +46,11 @@ jobs:
           base64 --decode ui-search-mobile-polish-20261024.tar.b64 > /tmp/ui-search-polish.tar.gz
           echo "799ba9d3dc12db50fa21d94bfdfafd6b3c9b19f792168ae071e2c12b47ff63eb  /tmp/ui-search-polish.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-search-polish.tar.gz -C public
+      - name: Apply verified color and typography polish
+        run: |
+          base64 --decode ui-visual-polish-20261024.tar.b64 > /tmp/visual-polish.tar.gz
+          echo "314e54003ccfcf92667d642703a7ddb4d1416063f38e0704b987c39338ec4881  /tmp/visual-polish.tar.gz" | sha256sum --check
+          tar -xzf /tmp/visual-polish.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
