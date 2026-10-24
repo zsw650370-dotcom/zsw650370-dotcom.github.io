@@ -51,6 +51,11 @@ jobs:
           base64 --decode ui-visual-polish-20261024.tar.b64 > /tmp/visual-polish.tar.gz
           echo "314e54003ccfcf92667d642703a7ddb4d1416063f38e0704b987c39338ec4881  /tmp/visual-polish.tar.gz" | sha256sum --check
           tar -xzf /tmp/visual-polish.tar.gz -C public
+      - name: Apply verified black and white palette
+        run: |
+          base64 --decode ui-monochrome-20261024.tar.b64 > /tmp/monochrome.tar.gz
+          echo "72e2aec140566343fb8631f02d4784bf77d672a0d804c0d11e6cb8be55614ec2  /tmp/monochrome.tar.gz" | sha256sum --check
+          tar -xzf /tmp/monochrome.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
