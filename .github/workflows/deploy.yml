@@ -276,6 +276,11 @@ jobs:
           base64 --decode example-review-20261024-043.tar.b64 > /tmp/example-review-043.tar.gz
           echo "a523ded0881882ff5aa465b8d85fb289653027f849eb8ac5d5e386a57f220395  /tmp/example-review-043.tar.gz" | sha256sum --check
           tar -xzf /tmp/example-review-043.tar.gz -C public
+      - name: Apply reviewed plain language examples batch 044
+        run: |
+          base64 --decode example-review-20261024-044.tar.b64 > /tmp/example-review-044.tar.gz
+          echo "ce0ad44b64b71fda61a2ad264729f7cae79853d8b69c921c5ce02acf6d773198  /tmp/example-review-044.tar.gz" | sha256sum --check
+          tar -xzf /tmp/example-review-044.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
