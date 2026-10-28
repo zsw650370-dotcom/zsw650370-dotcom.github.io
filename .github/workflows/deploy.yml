@@ -449,7 +449,7 @@ jobs:
       - name: Apply reviewed plain language examples batch 081
         run: |
           base64 --decode example-review-20261024-081.tar.b64 > /tmp/example-review-081.tar.gz
-          echo "d9037100e535649ad8ebae622ab15d582c64a8b068e783939244b815f06a0123  /tmp/example-review-081.tar.gz" | sha256sum --check
+          echo "55404b89ace7c56e58d4d3f0d8acda7472ce9ff4005b73cbf2cff4fa4e2706b6  /tmp/example-review-081.tar.gz" | sha256sum --check
           tar -xzf /tmp/example-review-081.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
