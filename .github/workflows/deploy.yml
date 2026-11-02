@@ -616,6 +616,11 @@ jobs:
           base64 --decode ui-red-20261102.tar.b64 > /tmp/ui-red.tar.gz
           echo "8237dbe29d0c94d8a99ff6194044bb2994a7aaa11ab2d61ad78efc7fa4651451  /tmp/ui-red.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-red.tar.gz -C public
+      - name: Apply approved courthouse silhouette background
+        run: |
+          base64 --decode ui-courthouse-20261102.tar.b64 > /tmp/ui-courthouse.tar.gz
+          echo "c76a3460fb317c61b9bc582f818e7d5c2484ab1da0e6bf9a643ab0751627bd2e  /tmp/ui-courthouse.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-courthouse.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
