@@ -611,6 +611,11 @@ jobs:
           base64 --decode example-review-20261024-150.tar.b64 > /tmp/example-review-150.tar.gz
           echo "5ea5257e190fa359098bea6afc707dde8b5df7e996cf990f76e4b19ddc5bcb69  /tmp/example-review-150.tar.gz" | sha256sum --check
           tar -xzf /tmp/example-review-150.tar.gz -C public
+      - name: Apply requested red navigation styling
+        run: |
+          base64 --decode ui-red-20261102.tar.b64 > /tmp/ui-red.tar.gz
+          echo "8237dbe29d0c94d8a99ff6194044bb2994a7aaa11ab2d61ad78efc7fa4651451  /tmp/ui-red.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-red.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
