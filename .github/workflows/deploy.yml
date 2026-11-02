@@ -621,6 +621,11 @@ jobs:
           base64 --decode ui-courthouse-20261102.tar.b64 > /tmp/ui-courthouse.tar.gz
           echo "c76a3460fb317c61b9bc582f818e7d5c2484ab1da0e6bf9a643ab0751627bd2e  /tmp/ui-courthouse.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-courthouse.tar.gz -C public
+      - name: Refresh courthouse homepage stylesheet version
+        run: |
+          base64 --decode ui-courthouse-v2-20261102.tar.b64 > /tmp/ui-courthouse-v2.tar.gz
+          echo "ccd793af6eb8eb717ce963383a1cfe6a1b59d54c33c40d4608ee98fe44852ede  /tmp/ui-courthouse-v2.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-courthouse-v2.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
