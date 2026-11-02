@@ -626,6 +626,11 @@ jobs:
           base64 --decode ui-courthouse-v2-20261102.tar.b64 > /tmp/ui-courthouse-v2.tar.gz
           echo "ccd793af6eb8eb717ce963383a1cfe6a1b59d54c33c40d4608ee98fe44852ede  /tmp/ui-courthouse-v2.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-courthouse-v2.tar.gz -C public
+      - name: Apply requested red law catalogue cards and courthouse header
+        run: |
+          base64 --decode ui-catalogue-red-20261102.tar.b64 > /tmp/ui-catalogue-red.tar.gz
+          echo "3a3549c39c876c5ec4c395e1176d996ad060f84c6eb9240a1524bb111598f98f  /tmp/ui-catalogue-red.tar.gz" | sha256sum --check
+          tar -xzf /tmp/ui-catalogue-red.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
