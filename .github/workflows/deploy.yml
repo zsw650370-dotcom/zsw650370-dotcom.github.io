@@ -631,6 +631,11 @@ jobs:
           base64 --decode ui-catalogue-red-20261102.tar.b64 > /tmp/ui-catalogue-red.tar.gz
           echo "3a3549c39c876c5ec4c395e1176d996ad060f84c6eb9240a1524bb111598f98f  /tmp/ui-catalogue-red.tar.gz" | sha256sum --check
           tar -xzf /tmp/ui-catalogue-red.tar.gz -C public
+      - name: Apply reviewed plain language examples batch 151
+        run: |
+          base64 --decode example-review-20261024-151.tar.b64 > /tmp/example-review-151.tar.gz
+          echo "584295d4ac051cb036b32d45f7bf23e7be60b0465b4568a2ede6c36304c93f95  /tmp/example-review-151.tar.gz" | sha256sum --check
+          tar -xzf /tmp/example-review-151.tar.gz -C public
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
