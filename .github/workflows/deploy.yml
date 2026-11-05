@@ -787,6 +787,8 @@ jobs:
           echo "cbb64f70edf25249564e55307839a2c27746b4f0ae59613e603779e6d2b0fa32  /tmp/example-review-181.tar.gz" | sha256sum --check
           tar -xzf /tmp/example-review-181.tar.gz -C public
       - uses: actions/configure-pages@v5
+      - name: Apply public law relations and repeal cleanup
+        run: python3 tools/law-relations/release.py public
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
