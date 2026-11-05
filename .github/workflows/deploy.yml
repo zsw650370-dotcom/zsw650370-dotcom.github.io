@@ -799,6 +799,24 @@ jobs:
       - uses: actions/configure-pages@v5
       - name: Apply public law relations and repeal cleanup
         run: python3 tools/law-relations/release.py public
+      - name: Remove homepage reading card and search tip
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          page = Path("public/index.html")
+          source = page.read_text(encoding="utf-8")
+          start = source.index('<section class="home-hero">')
+          end = source.index('</section>', start)
+          hero = source[start:end]
+          for pattern in (r'<aside class="hero-aside"[^>]*>.*?</aside>',
+                          r'<p class="search-tip"[^>]*>.*?</p>'):
+              hero, count = re.subn(pattern, '', hero, flags=re.S)
+              assert count == 1, pattern
+          hero = hero.replace('<section class="home-hero">', '<section class="home-hero" style="grid-template-columns:minmax(0,1fr)">', 1)
+          page.write_text(source[:start] + hero + source[end:], encoding="utf-8")
+          PY
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
