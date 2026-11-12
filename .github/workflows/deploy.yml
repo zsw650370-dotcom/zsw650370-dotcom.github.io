@@ -1086,6 +1086,11 @@ jobs:
           base64 --decode example-review-20261024-249.tar.b64 > /tmp/example-review-249.tar.gz
           echo "d444000ac5a39435ef1dea753892a309d88ea12cc327e139ce696f34a5bdb3d5  /tmp/example-review-249.tar.gz" | sha256sum --check
           tar -xzf /tmp/example-review-249.tar.gz -C public
+      - name: Apply reviewed plain language examples batch 250
+        run: |
+          base64 --decode example-review-20261024-250.tar.b64 > /tmp/example-review-250.tar.gz
+          echo "e6efda8439512ef04c393059db4f3e79186b41e99ff827dcd10154b7bfa9fcf5  /tmp/example-review-250.tar.gz" | sha256sum --check
+          tar -xzf /tmp/example-review-250.tar.gz -C public
       - uses: actions/configure-pages@v5
       - name: Apply public law relations and repeal cleanup
         run: python3 tools/law-relations/release.py public
